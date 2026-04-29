@@ -7,7 +7,7 @@ import { ACTIVITY_META, GOAL_META } from '../types';
 
 // ===== CONFIG =====
 
-const GEMINI_MODEL = 'gemini-2.0-flash';
+const GEMINI_MODEL = 'gemini-3.0-flash';
 const API_BASE = 'https://generativelanguage.googleapis.com/v1beta';
 export function getApiKey(): string {
   return import.meta.env.VITE_GEMINI_API_KEY || '';
