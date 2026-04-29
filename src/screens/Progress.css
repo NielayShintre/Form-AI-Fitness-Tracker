@@ -1,0 +1,326 @@
+/* ============================
+   Progress Screen
+   ============================ */
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* HEADER */
+.progress__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.progress__range-toggle {
+  display: flex;
+  gap: var(--space-1);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-1);
+}
+
+.progress__range-btn {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.progress__range-btn:hover {
+  color: var(--color-text-primary);
+}
+
+.progress__range-btn--active {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+/* MILESTONE BANNER */
+.progress__milestone {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-8);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress__milestone-text {
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* VERDICT */
+.progress__verdict {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* SECTIONS */
+.progress__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.progress__section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* HEATMAP */
+.heatmap {
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  padding: var(--space-4) 0;
+}
+
+.heatmap__day-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 0;
+  flex-shrink: 0;
+}
+
+.heatmap__label {
+  height: 12px;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+.heatmap__svg {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+.heatmap__cell {
+  transition: opacity 150ms ease;
+}
+
+.heatmap__cell:hover {
+  opacity: 0.8;
+  stroke: var(--color-text-primary);
+  stroke-width: 1;
+}
+
+/* VOLUME CHART */
+.volume-chart {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+}
+
+.volume-chart__svg {
+  width: 100%;
+  height: 200px;
+}
+
+.volume-chart__legend {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.volume-chart__legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+.volume-chart__legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+/* RECORDS */
+.records {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.records__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color 150ms ease;
+}
+
+.records__row:hover {
+  border-color: var(--color-accent-border);
+}
+
+.records__medal {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.records__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.records__title {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+}
+
+.records__date {
+  color: var(--color-text-muted);
+}
+
+.records__value {
+  font-size: var(--text-base);
+  white-space: nowrap;
+}
+
+/* CHALLENGE HISTORY */
+.challenge-history__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.challenge-history__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color 150ms ease;
+}
+
+.challenge-history__row:hover {
+  border-color: var(--color-accent-border);
+}
+
+.challenge-history__row--active {
+  border-color: var(--color-accent-border);
+  border-left: 3px solid var(--color-accent);
+}
+
+.challenge-history__row--completed {
+  background: var(--color-accent-dim);
+  border-color: var(--color-accent-border);
+}
+
+.challenge-history__row--failed {
+  opacity: 0.6;
+}
+
+.challenge-history__icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.challenge-history__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.challenge-history__title {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-primary);
+}
+
+.challenge-history__meta {
+  color: var(--color-text-muted);
+}
+
+.challenge-history__progress-ring {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.challenge-history__progress-text {
+  position: absolute;
+  font-size: 9px;
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+}
+
+.challenge-history__badge {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--weight-bold);
+  font-size: var(--text-sm);
+  flex-shrink: 0;
+}
+
+.challenge-history__badge--missed {
+  background: var(--color-surface-raised);
+  color: var(--color-text-muted);
+}
+
+/* RESPONSIVE */
+@media (max-width: 767px) {
+  .progress__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .heatmap__svg {
+    min-width: 400px;
+  }
+
+  .challenge-history__row {
+    padding: var(--space-3) var(--space-4);
+  }
+}

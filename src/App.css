@@ -1,0 +1,38 @@
+/* ============================
+   App-level overrides
+   ============================ */
+
+.app-topbar__title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 1023px) {
+  .app-topbar__title {
+    position: static;
+    transform: none;
+  }
+}
+
+/* Reset Modal */
+.reset-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(4px);
+}
+
+.reset-modal {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  max-width: 400px;
+  width: 90%;
+  box-shadow: var(--shadow-lg);
+}

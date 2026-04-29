@@ -1,0 +1,267 @@
+/* ============================
+   Log Workout Screen
+   ============================ */
+
+.log-workout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-width: 640px;
+  margin: 0 auto;
+  padding-bottom: var(--space-20);
+}
+
+.log-workout--saved {
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.log-workout__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* ACTIVITY GRID */
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+}
+
+.activity-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 80px;
+  max-height: 80px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.activity-cell:hover {
+  background: var(--color-surface-raised);
+  transform: scale(1.02);
+}
+
+.activity-cell:hover .activity-cell__icon {
+  color: var(--color-text-primary);
+}
+
+.activity-cell--selected {
+  background: var(--color-accent-dim);
+  border-color: var(--color-accent-border);
+  box-shadow: var(--shadow-glow);
+}
+
+.activity-cell--selected .activity-cell__icon {
+  filter: drop-shadow(0 0 6px rgba(212,255,0,0.4));
+}
+
+.activity-cell__icon {
+  font-size: 28px;
+  color: var(--color-text-secondary);
+  transition: color 150ms ease;
+}
+
+.activity-cell__label {
+  font-family: var(--font-body);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.activity-cell__check {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 16px;
+  height: 16px;
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: form-scale-in 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* DURATION STEPPER */
+.duration-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  padding: var(--space-6) 0;
+}
+
+.duration-stepper__btn {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  font-size: var(--text-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 80ms ease;
+  user-select: none;
+}
+
+.duration-stepper__btn:hover {
+  background: var(--color-accent-dim);
+  border-color: var(--color-accent-border);
+}
+
+.duration-stepper__btn:active {
+  transform: scale(0.93);
+}
+
+.duration-stepper__display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  min-width: 120px;
+}
+
+.duration-stepper__value {
+  font-family: var(--font-mono);
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.duration-stepper__unit {
+  font-size: var(--text-sm);
+}
+
+/* INTENSITY SELECTOR */
+.intensity-selector {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.intensity-pill {
+  flex: 1;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.intensity-pill--1 {
+  background: rgba(74, 222, 128, 0.12);
+  border-color: rgba(74, 222, 128, 0.3);
+  color: #4ADE80;
+}
+
+.intensity-pill--2 {
+  background: rgba(251, 191, 36, 0.12);
+  border-color: rgba(251, 191, 36, 0.3);
+  color: #FBBF24;
+}
+
+.intensity-pill--3 {
+  background: rgba(255, 45, 32, 0.12);
+  border-color: rgba(255, 45, 32, 0.3);
+  color: #FF2D20;
+}
+
+/* NOTES */
+.log-workout__notes {
+  margin-top: var(--space-2);
+}
+
+.log-workout__textarea {
+  width: 100%;
+  min-height: 80px;
+  max-height: 160px;
+  resize: vertical;
+  background: var(--color-surface);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-primary);
+  transition: border-color 150ms ease;
+  outline: none;
+}
+
+.log-workout__textarea:focus {
+  border-color: var(--color-accent-border);
+}
+
+.log-workout__textarea::placeholder {
+  font-family: var(--font-ai);
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+/* SAVE */
+.log-workout__save {
+  position: sticky;
+  bottom: var(--space-4);
+  z-index: 10;
+}
+
+/* CONFIRMATION */
+.log-workout__confirm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: form-scale-in 400ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.log-workout__checkmark-path {
+  stroke-dasharray: 100;
+  animation: form-checkmark 400ms ease-out forwards;
+}
+
+.log-workout__ai-tip {
+  max-width: 400px;
+}
+
+.log-workout__confirm-actions {
+  display: flex;
+  gap: var(--space-4);
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .activity-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-2);
+  }
+  
+  .activity-cell {
+    max-width: none;
+    max-height: none;
+  }
+
+  .activity-cell__icon {
+    font-size: 24px;
+  }
+}
